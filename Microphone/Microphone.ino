@@ -1,5 +1,5 @@
 const int micPin = A2;
-const int greenLED = 12;
+const int greenLED = 13;
 int micState = 0;
 
 void setup(){
@@ -14,15 +14,15 @@ void loop(){
 
   if (micState > 600){
     digitalWrite(greenLED, HIGH);
-    delay(100);
     Serial.println("sound");
+    delay(100);
   }
   else{
     digitalWrite(greenLED, LOW);
     delay(10);
     Serial.println("quiet");
   }
-
+delay(500);
 //hiii
 
 }
