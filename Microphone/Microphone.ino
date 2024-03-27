@@ -1,28 +1,24 @@
-const int micPin = A2;
-const int greenLED = 13;
-int micState = 0;
+const int rightMic = A2;
+const int leftMic = A1;
+int rightMicState = 0;
+int leftMicState = 0;
 
 void setup(){
-  pinMode(micPin, INPUT);
-  pinMode(greenLED, OUTPUT);
+  pinMode(rightMic, INPUT);
+  pinMode(leftMic, INPUT);
   Serial.begin(9600);
 }
 
 void loop(){
-  micState = analogRead(micPin);
-  Serial.println(micState);
+  rightMicState = analogRead(rightMic);
+  leftMicState = analogRead(leftMic);
+  Serial.print("Right: ");
+  Serial.println(rightMicState);
 
-  if (micState > 600){
-    digitalWrite(greenLED, HIGH);
-    Serial.println("sound");
-    delay(100);
-  }
-  else{
-    digitalWrite(greenLED, LOW);
-    delay(10);
-    Serial.println("quiet");
-  }
-delay(500);
+  
+  Serial.print("Left: ");
+  Serial.println(leftMicState);
+delay(100);
 //hiii
 
 }
