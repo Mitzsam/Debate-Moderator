@@ -14,11 +14,9 @@ void loop(){
   leftMicState = analogRead(leftMic);
   Serial.print("Right: ");
   Serial.println(rightMicState);
-
   
   Serial.print("Left: ");
   Serial.println(leftMicState);
 delay(100);
-//hiii
 
 }
