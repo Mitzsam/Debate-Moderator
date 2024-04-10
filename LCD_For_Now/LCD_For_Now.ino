@@ -20,7 +20,7 @@ void loop() {
   delay(200);
 }
 
-
+/*
 lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("");
@@ -43,3 +43,4 @@ lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("remember that friends can disagree :)");
   delay(200);
+*/
