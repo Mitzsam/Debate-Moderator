@@ -10,8 +10,6 @@ String screenSaver[] = []
 void setup() {
   // put your setup code here, to run once:
   lcd.init();
-  
- 
 }
 
 void loop() {
