@@ -16,8 +16,8 @@ int loudnessThreshold = 300;
 LiquidCrystal_I2C lcd(0x27,16,2);
 
 unsigned long lastMessageChange = millis();
-long messageInterval = 10000;
-String ranMessages[] = {"Disagreement doesn't mean hatred"};
+long messageInterval = 1000;
+String ranMessages[] = {"Disagreement doesn't = hatred"};
 
 void setup(){
   pinMode(rightMic, INPUT);
@@ -31,13 +31,18 @@ void setup(){
 void loop(){
   rightMicState = analogRead(rightMic);
   leftMicState = analogRead(leftMic);
-  Serial.print("Right: ");
-  Serial.println(rightMicState);
+  //Serial.print("Right: ");
+  //Serial.println(rightMicState);
   
-  Serial.print("Left: ");
-  Serial.println(leftMicState);
-  delay(100);
-  digitalWrite(buzzerPin, HIGH);
+  //Serial.print("Left: ");
+  //Serial.println(leftMicState);
+
+  unsigned long currentMillis = millis();
+  if (currentMillis - lastMessageChange >= messageInterval){
+    printRanMessage();
+    lastMessageChange = currentMillis;
+    Serial.println("Screen change");
+  }
 
   if (rightMicState > loudnessThreshold || leftMicState > loudnessThreshold){
     lcd.clear();
@@ -69,4 +74,11 @@ void flashAndBuzz(){
   digitalWrite(buzzerPin, LOW);
 
   noTone(buzzerPin);
+}
+
+void printRanMessage(){
+  lcd.clear();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print(ranMessages[rand() % sizeof(ranMessages)]);
 }
