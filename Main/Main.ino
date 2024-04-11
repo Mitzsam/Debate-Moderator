@@ -15,6 +15,10 @@ int loudnessThreshold = 300;
 
 LiquidCrystal_I2C lcd(0x27,16,2);
 
+unsigned long lastMessageChange = millis();
+long messageInterval = 10000;
+String ranMessages[] = {"Disagreement doesn't mean hatred"};
+
 void setup(){
   pinMode(rightMic, INPUT);
   pinMode(leftMic, INPUT);
