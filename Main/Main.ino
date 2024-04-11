@@ -40,12 +40,13 @@ void loop(){
   digitalWrite(buzzerPin, HIGH);
 
   if (rightMicState > loudnessThreshold || leftMicState > loudnessThreshold){
-    flashAndBuzz();
+    lcd.clear();
     lcd.backlight();
     lcd.setCursor(0, 0);
     lcd.print("indoor voices");
     lcd.setCursor(0,1);
     lcd.print("please");
+    flashAndBuzz();
     delay(200);
     }
 
