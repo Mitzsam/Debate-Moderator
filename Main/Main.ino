@@ -17,8 +17,9 @@ LiquidCrystal_I2C lcd(0x27,16,2);
 
 unsigned long lastMessageChange = millis();
 long messageInterval = 1000;
+String ranMessages[] = {"Disagreement", "is not hatred", "Testing","123", "Something else", "entirely"};
 //manually stores the size of the ranMessages array
-int sizeOfRan = 3;
+int sizeOfRan = 6;
 
 void setup(){
   pinMode(rightMic, INPUT);
@@ -78,8 +79,12 @@ void flashAndBuzz(){
 }
 
 void printRanMessage(){
+  int index = (rand() % sizeOfRan/2) * 2;
+  Serial.println(index);
   lcd.clear();
   lcd.backlight();
   lcd.setCursor(0, 0);
-  lcd.print(ranMessages[rand() % sizeOfRan]);
+  lcd.print(ranMessages[index]);
+  lcd.setCursor(0, 1);
+  lcd.print(ranMessages[index+1]);
 }
