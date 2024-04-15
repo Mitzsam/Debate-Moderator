@@ -17,7 +17,7 @@ LiquidCrystal_I2C lcd(0x27,16,2);
 
 unsigned long lastMessageChange = millis();
 long messageInterval = 1000;
-String ranMessages[] = {"Disagreement", "is not hatred", "Testing","123", "Something else", "entirely"};
+String ranMessages[] = {"Disagreement", "is not hatred", "It's possible","to both be right", "Respect your", "opponent"};
 //manually stores the size of the ranMessages array
 int sizeOfRan = 6;
 
