@@ -17,7 +17,8 @@ LiquidCrystal_I2C lcd(0x27,16,2);
 
 unsigned long lastMessageChange = millis();
 long messageInterval = 1000;
-String ranMessages[] = {"Disagreement doesn't = hatred"};
+//manually stores the size of the ranMessages array
+int sizeOfRan = 3;
 
 void setup(){
   pinMode(rightMic, INPUT);
@@ -80,5 +81,5 @@ void printRanMessage(){
   lcd.clear();
   lcd.backlight();
   lcd.setCursor(0, 0);
-  lcd.print(ranMessages[rand() % sizeof(ranMessages)]);
+  lcd.print(ranMessages[rand() % sizeOfRan]);
 }
