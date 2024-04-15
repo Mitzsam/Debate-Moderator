@@ -26,7 +26,6 @@ void setup(){
   pinMode(leftMic, INPUT);
   pinMode(buzzerPin, OUTPUT);
   pinMode(flashPin, OUTPUT);
-  Serial.begin(9600);
   lcd.init();
 }
 
@@ -43,7 +42,6 @@ void loop(){
   if (currentMillis - lastMessageChange >= messageInterval){
     printRanMessage();
     lastMessageChange = currentMillis;
-    Serial.println("Screen change");
   }
 
   if (rightMicState > loudnessThreshold || leftMicState > loudnessThreshold){
@@ -80,7 +78,6 @@ void flashAndBuzz(){
 
 void printRanMessage(){
   int index = (rand() % sizeOfRan/2) * 2;
-  Serial.println(index);
   lcd.clear();
   lcd.backlight();
   lcd.setCursor(0, 0);
