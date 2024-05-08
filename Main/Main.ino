@@ -47,7 +47,7 @@ void loop(){
     lcd.setCursor(0,1);
     lcd.print("please");
     flashAndBuzz();
-    delay(1000);
+    delay(500);
     }
 
 }
