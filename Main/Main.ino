@@ -16,7 +16,7 @@ int loudnessThreshold = 300;
 LiquidCrystal_I2C lcd(0x27,16,2);
 
 unsigned long lastMessageChange = millis();
-long messageInterval = 1000;
+long messageInterval = 5000;
 String ranMessages[] = {"Disagreement", "is not hatred", "It's possible","to both be right", "Respect your", "opponent"};
 //manually stores the size of the ranMessages array
 int sizeOfRan = 6;
@@ -32,11 +32,6 @@ void setup(){
 void loop(){
   rightMicState = analogRead(rightMic);
   leftMicState = analogRead(leftMic);
-  //Serial.print("Right: ");
-  //Serial.println(rightMicState);
-  
-  //Serial.print("Left: ");
-  //Serial.println(leftMicState);
 
   unsigned long currentMillis = millis();
   if (currentMillis - lastMessageChange >= messageInterval){
