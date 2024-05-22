@@ -39,7 +39,8 @@ void loop(){
     lastMessageChange = currentMillis;
   }
 
-  if (rightMicState > loudnessThreshold || leftMicState > loudnessThreshold){
+
+  if (rightMicState >= loudnessThreshold){
     lcd.clear();
     lcd.backlight();
     lcd.setCursor(0, 0);
