@@ -55,18 +55,16 @@ void loop(){
 void flashAndBuzz(){
   tone(buzzerPin, 1000);
 
+  for (int i = 0; i<3; i++){
+    digitalWrite(flashPin, HIGH);
+    delay(flashDelay);
+    digitalWrite(flashPin, LOW);
+    delay(flashDelay);
+  }
+
   digitalWrite(flashPin, HIGH);
   delay(flashDelay);
   digitalWrite(flashPin, LOW);
-  delay(flashDelay);
-   digitalWrite(flashPin, HIGH);
-  delay(flashDelay);
-  digitalWrite(flashPin, LOW);
-  delay(flashDelay);
-   digitalWrite(flashPin, HIGH);
-  delay(flashDelay);
-  digitalWrite(flashPin, LOW);
-  digitalWrite(buzzerPin, LOW);
 
   noTone(buzzerPin);
 }
